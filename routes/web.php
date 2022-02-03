@@ -67,7 +67,7 @@ Route::get('event','CompanyUserController@index')->name('index');
 Route::get('sendemail','CompanyUserController@sendmail')->name('sendmail');
 //queue and jobs route
 Route::resource('form','FormContoller');
-//form example
+//form examples
 
 
 
