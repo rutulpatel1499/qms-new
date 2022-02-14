@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Http\Request;
-
+use Log;
+use Socialite;
 class logincontroller extends Controller
 {
     public function __construct() {
@@ -16,6 +17,7 @@ class logincontroller extends Controller
     public function login()
     {
         if (Auth::check())
+
         {
             $userRole = auth()->user()->roles->name;
             {
@@ -44,11 +46,12 @@ class logincontroller extends Controller
                 $userRole = auth()->user()->roles->name;
                 {
                     //  dd($userRole);
+                    // log::info( $userRole);
                     if ($userRole == 'admin') {
                     return redirect()->route('user');
                     }
                     elseif ($userRole == 'user'){
-                    return redirect()->route('CompanySidebar');
+                        return redirect()->route('CompanySidebar');
                     }
                 }
             }
@@ -70,8 +73,10 @@ class logincontroller extends Controller
  //logout controller
     public function logout()
     {
+        // log::info('yessss');
         try
         {
+            // log::info('logout');
             Auth::logout();
             return redirect('login');
         }
@@ -84,5 +89,6 @@ class logincontroller extends Controller
             return redirect()->back();
         }
     }
+
 }
                   

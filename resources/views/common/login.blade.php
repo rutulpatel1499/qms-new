@@ -89,8 +89,11 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
-
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">login</button>
+                            <!-- <button type="" class="fa fa-google btn btn-primary btn-block btn-lg"> login with google</button> -->
+                            <a href="{{ url('google') }}" style="margin-top: 20px;" class="fa fa-google btn btn-lg btn-success btn-block">
+                                  <strong>Login With Google</strong>
+                                </a>     
                         </form>
                         <p class="text-right p-t-10">
                             <a href="{{route('reset')}}" class="text-underline">Forgot Password?</a>

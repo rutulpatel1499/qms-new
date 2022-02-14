@@ -22,15 +22,15 @@ class CompanyUserController extends Controller
         if (Auth::check())
         
         {
-            $userRole = auth()->user()->roles->name;
+            // $userRole = auth()->user()->roles->name;
             
-                if ($userRole == 'admin') {
-                return redirect()->route('user');
-                }
-                else{
+            //     if ($userRole == 'admin') {
+            //         return redirect()->route('admin');
+            //     }
+            //     else{
 
-                    // abort(403);
-                }
+            //         // abort(403);
+            //     }
             
             $client=DB::table('clients')->count();
             $brand=DB::table('brands')->count();
@@ -51,19 +51,18 @@ class CompanyUserController extends Controller
     }   
 
 
-        public function sendmail()
-        {
+    public function sendmail()
+    {
 
-            $data = ['message' => 'This is a test mail!'];
+        $data = ['message' => 'This is a test mail!'];
 
-            $mail = Mail::to('ghanshyampatel6550gmail.com')->send(new SendMailable($data));
+        $mail = Mail::to('ghanshyampatel6550@gmail.com')->send(new SendMailable($data));
+        
+        return "email has been sent";
+
+
+        $emailjob=(new SendEmailJob())->delay(Carbon\Carbon::now()->addSeconds(5));
             
-            return "email has been sent";
-
-
-            $emailjob=(new SendEmailJob())->delay(Carbon\Carbon::now()->addSeconds(5));
-            // dispatch($emailjob);
-            //    echo  "sent email";
     }
     public function dummyapi(Request $req)
     {

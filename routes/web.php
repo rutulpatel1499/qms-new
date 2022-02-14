@@ -17,7 +17,7 @@ Route::auth();
 // Route::group(['middleware' => ['web', 'role']],  function() {
     
 //user route
-Route::get('user','UserController@user')->name('user');
+Route::get('admin','UserController@user')->name('user');
 Route::get('login','logincontroller@login')->name('login');
 Route::post('loginme','logincontroller@userlogin')->name('userlogin');
 Route::get('logout','logincontroller@logout')->name('logout');
@@ -68,6 +68,7 @@ Route::get('sendemail','CompanyUserController@sendmail')->name('sendmail');
 //queue and jobs route
 Route::resource('form','FormContoller');
 //form examples
-
-
-
+// Route::get('google', 'Auth\LoginController@redirectToProvider');
+// Route::get('googlecall', 'Auth\LoginController@handleProviderCallback');
+Route::get('google', 'GoogleController@redirectToGoogle');
+Route::get('googlecallback', 'GoogleController@handleGoogleCallback')->name('handleGoogleCallback');

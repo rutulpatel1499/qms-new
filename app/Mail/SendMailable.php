@@ -30,7 +30,7 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        $address = 'ghanshyampatel6550@gmail.com';
+        $address = 'rutulpatel6550@gmail.com';
         $name = 'rutul patel';
 
         return $this->view('testmail')

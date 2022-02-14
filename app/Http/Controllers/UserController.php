@@ -9,7 +9,9 @@ use Image;
 use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
-    
+    public function __construct() {
+       
+    }
     public function user()
     {
         if (Auth::check())
@@ -19,7 +21,7 @@ class UserController extends Controller
             $userRole = auth()->user()->roles->name;
             if ($userRole == 'user') {
             return redirect()->route('CompanySidebar');
-        //  abort(403);
+            //  abort(403);
            
             }
             
